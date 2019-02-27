@@ -19,7 +19,7 @@ passport.use(new GoogleStrategy({
 	clientID: keys.googleClientID,
 	clientSecret: keys.googleClientSecret,
 	callbackURL: '/auth/google/callback',
-	proxy: true
+	proxy:true
 }, 
 		 (accessToken,refreshToken, profile, done) => {
 	     User.findOne({ googleId: profile.id })
@@ -36,3 +36,4 @@ passport.use(new GoogleStrategy({
 	 )
 );
 
+// https://guarded-retreat-85126.herokuapp.com/auth/google/callback
