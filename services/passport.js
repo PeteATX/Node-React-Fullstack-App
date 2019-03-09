@@ -18,8 +18,8 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
 	clientID: keys.googleClientID,
 	clientSecret: keys.googleClientSecret,
-	callbackURL: '/auth/google/callback',
-	proxy: true,
+	callbackURL: 'https://guarded-retreat-85126.herokuapp.com/auth/google/callback',
+	
 	userProfileURL: "https://www.gooogleapis.com/oauth2/v3/userinfo",
 	
 	}, 
@@ -29,6 +29,7 @@ passport.use(new GoogleStrategy({
 									if (existingUser) {
 												return done(null, existingUser);
 									}	
+	
 												const user = await new User({ googleId: profile.id }).save()
 											 done(null, user);
 									}
