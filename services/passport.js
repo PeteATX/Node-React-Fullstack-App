@@ -36,7 +36,6 @@ passport.use(new GoogleStrategy({
 	   )
 );
 
-   https://guarded-retreat-85126.herokuapp.com
-
+  
 
 
