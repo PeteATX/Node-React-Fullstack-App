@@ -18,11 +18,9 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
 	clientID: keys.googleClientID,
 	clientSecret: keys.googleClientSecret,
-	callbackURL: 'https://guarded-retreat-85126.herokuapp.com/auth/google/callback',
-	
-	userProfileURL: "https://www.gooogleapis.com/oauth2/v3/userinfo",
-	
-	}, 
+	callbackURL: '/auth/google/callback',
+	userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo'
+		}, 
 		 async (accessToken,refreshToken, profile, done) => {
 	     const existingUser = await User.findOne({ googleId: profile.id })
 
